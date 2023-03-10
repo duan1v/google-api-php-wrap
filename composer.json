@@ -1,0 +1,32 @@
+{
+  "name": "dywily/gaw",
+  "description": "wrap some google api,like gmail api",
+  "type": "library",
+  "keywords": ["google","gmail api"],
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=8.1",
+    "google/apiclient": "^2.12.1",
+    "ext-dom": "*",
+    "ext-libxml": "*",
+    "ext-curl": "*",
+    "nesbot/carbon": "^2.66"
+  },
+  "authors": [
+    {
+      "name": "dywily",
+      "email": "yiwei.duan@outlook.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Dywily\\Gaw\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x-dev"
+    }
+  }
+}

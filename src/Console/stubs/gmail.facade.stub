@@ -1,0 +1,36 @@
+<?php
+
+
+namespace App\Facades;
+
+use Carbon\Carbon;
+use Dywily\Gaw\Entity\DHeader;
+use Dywily\Gaw\Entity\DMessage;
+use Google\Service\Gmail\Label;
+use Google\Service\Gmail\Message;
+use Illuminate\Support\Facades\Facade;
+
+/**
+ * @method static \Generator|Label[] getLabels()
+ * @method static string removeQuote(string $content)
+ * @method static DMessage display(DMessage $dm)
+ * @method static \Generator|DMessage[] getMsg($gid, Carbon $since, $cf, $cacheContent, $maxResults = 0)
+ * @method static \Generator|DMessage[] syncMail($maxResults = 0): \Generator|array
+ * @method static void clearUpload()
+ * @method static DMessage setMsgInfo(Message $result)
+ * @method static array createLabelBase($nl, $bgs = [], $fcs = [])
+ * @method static array createOrTagLabels(array $preAddLabelsName, $gids = [], $preRmLabelsName = [], $bgs = [], $fcs = [])
+ * @method static array pullLabels()
+ * @method static void deleteLabel($lid)
+ * @method static \Generator|DMessage[] syncMailWithThread($tid)
+ * @method static DMessage|bool pullMsg($gid)
+ * @method static Message sendMsg(DHeader $header, string $body, $attachmentIds = '', DMessage $replyEmail = null)
+ *
+ * @see \Dywily\Gaw\Services\GmailService
+ */
+class Gmail extends Facade
+{
+    protected static function getFacadeAccessor() {
+        return 'gmail';
+    }
+}
