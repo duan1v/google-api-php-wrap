@@ -51,3 +51,7 @@ App\Providers\GmailServiceProvider::class,
 ```shell
 php artisan serve --port 8068
 ```
+
+## PS
+* 同步邮件关于使用yield返回邮件列表，与直接返回邮件列表，内存比照
+  ![内存比照](https://static.duan1v.com/images/20230314001350.png)

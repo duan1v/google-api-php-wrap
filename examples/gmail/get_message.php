@@ -13,6 +13,8 @@ try {
     $client = $gm->account();
     $gm->initService('gmail', $client);
     $service = GmailService::instance();
+
+    echo "初始: " . memory_get_usage() . "B\n";
     // 生成的时候不需要时间空间
     // 遍历时会生成附件的临时文件，可通过附件的path获取，保存到其他的地方，比如七牛、s3等云存储
     $message = $service->syncMail();
@@ -47,6 +49,10 @@ try {
                 }
                 // 之后可以删除临时文件
                 //    $service->clearUpload();
+                echo "使用: " . memory_get_usage() . "B\n";
+                unset($message);
+                echo "释放: " . memory_get_usage() . "B\n";
+                echo "峰值: " . memory_get_peak_usage() . "B\n";
                 ?>
             </ol>
         </div>
