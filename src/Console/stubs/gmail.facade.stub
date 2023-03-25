@@ -1,0 +1,38 @@
+<?php
+
+
+namespace App\Facades;
+
+use Dywily\Gaw\Entity\DHeader;
+use Dywily\Gaw\Entity\DMessage;
+use Dywily\Gaw\Entity\DSearchFields;
+use Dywily\Gaw\Services\GmailService;
+use Google\Service\Gmail\Label;
+use Google\Service\Gmail\Message;
+use Illuminate\Support\Facades\Facade;
+
+/**
+ * @method static \Generator|Label[] getLabels()
+ * @method static string removeQuote(string $content)
+ * @method static DMessage display(DMessage $dm)
+ * @method static \Generator|DMessage[] getMsg($gid, $cf, $cacheContent, DSearchFields $searchFields, $mode = GmailService::MODE_APPEND, $maxResults = 0): \Generator|array
+ * @method static \Generator|DMessage[] syncMail(DSearchFields $searchFields, $mode = GmailService::MODE_APPEND, $maxResults = 0): \Generator|array
+ * @method static void clearUpload()
+ * @method static DMessage setMsgInfo(Message $result)
+ * @method static array createLabelBase($nl, $bgs = [], $fcs = [])
+ * @method static array createOrTagLabels(array $preAddLabelsName, $gids = [], $preRmLabelsName = [], $bgs = [], $fcs = [])
+ * @method static array pullLabels()
+ * @method static void deleteLabel($lid)
+ * @method static \Generator|DMessage[] syncMailWithThread($tid)
+ * @method static DMessage|bool pullMsg($gid)
+ * @method static Message sendMsg(DHeader $header, string $body, $attachmentIds = '', DMessage $replyEmail = null)
+ *
+ * @see \Dywily\Gaw\Services\GmailService
+ */
+class Gmail extends Facade
+{
+    protected static function getFacadeAccessor()
+    {
+        return 'gmail';
+    }
+}

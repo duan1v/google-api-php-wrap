@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Providers;
+
+use Dywily\Gaw\GoogleManager;
+use Dywily\Gaw\Services\GmailService;
+use Illuminate\Support\ServiceProvider;
+
+class GmailServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->singleton('gmail', function () {
+            $gm = new GoogleManager(config('gaw'));
+            $client = $gm->account('gmail');
+            $gm->initService($client);
+            return GmailService::instance();
+        });
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+}
